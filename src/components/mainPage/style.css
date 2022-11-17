@@ -5,12 +5,12 @@
 .transactions-section{
     width: 100%;
     height: 100px;
-    margin-left: 20px;
 }
 
 .transactions-list{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 1.5rem;
     gap: 2rem;
 }
@@ -23,5 +23,6 @@
     }
     .transactions-section{
         width: 60%;
+        margin-left: 20px;
     }
 }

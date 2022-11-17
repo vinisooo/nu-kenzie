@@ -18,8 +18,7 @@ const MainPage = ()=>{
 
         const entryValue = entry.map(el=>parseFloat(el.value)).reduce((a,b)=>{return a+b},0);
         const debitsValue = debits.map(el=>parseFloat(el.value)).reduce((a,b)=>{return a+b},0);
-        
-        console.log(entryValue, debitsValue)
+
         return (entryValue - debitsValue).toFixed(2)
     }
 
@@ -42,7 +41,10 @@ const MainPage = ()=>{
                                         key={index}
                                         description={el.description}
                                         value={el.value}
-                                        type={el.type}/>
+                                        type={el.type}
+                                        id={el.id}
+                                        transactions={transactions}
+                                        setTransactions={setTransactions}/>
                             })
                         }
                     </ul>

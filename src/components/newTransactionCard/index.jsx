@@ -7,14 +7,17 @@ const NewTransaction = ({transactions, setTransactions})=>{
     const [ type, setType ] = useState("");
 
     function addTransaction(event){
+        const id = transactions.length == 0? 1: transactions[transactions.length -1].id + 1;
 
         const transaction = {
             "description": description,
             "value": value,
             "type": type,
+            "id": id,
         }
 
         setTransactions([...transactions, transaction])
+        console.log(transactions)
     }
 
     return (

@@ -1,6 +1,10 @@
 import "./style.css"
 
-const Transaction=({description, value, type})=>{
+const Transaction=({description, value, type, id, transactions, setTransactions})=>{
+
+    function removeTransaction(id){
+        setTransactions(transactions.filter(el=> el.id != id))
+    }
 
     return (
         <li className={type == "entrada" ? "entry transaction":"debit transaction"}>
@@ -8,7 +12,7 @@ const Transaction=({description, value, type})=>{
                 <h3>{description}</h3>
                 <div>
                     <span>{value}</span>
-                    <button>Lixeira</button>
+                    <button id={id} onClick={(e)=>removeTransaction(e.target.id)}>Lixeira</button>
                 </div>
             </div>
             <span>{type}</span>
