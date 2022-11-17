@@ -1,4 +1,5 @@
 import "./style.css"
+import deleteIcon from "../../assets/trash.png"
 
 const Transaction=({description, value, type, id, transactions, setTransactions})=>{
 
@@ -12,7 +13,9 @@ const Transaction=({description, value, type, id, transactions, setTransactions}
                 <h3>{description}</h3>
                 <div>
                     <span>{value}</span>
-                    <button id={id} onClick={(e)=>removeTransaction(e.target.id)}>Lixeira</button>
+                    <button className="delete-btn" id={id} onClick={(e)=>removeTransaction(e.target.id)}>
+                        <img src={deleteIcon} alt="" />
+                    </button>
                 </div>
             </div>
             <span>{type}</span>

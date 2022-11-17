@@ -6,9 +6,19 @@ import TotalValue from "../totalValue"
 import Transaction from "../transaction"
 import NoCard from "../noCards"
 
+const getTransactionsFromLocalStorage =()=>{
+
+    const transactions = localStorage.getItem("@nu-kenzie: transactions");
+    if(transactions){
+        const transactionsParse = JSON.parse(transactions);
+        return transactionsParse;
+    }
+    return [];
+}
+
 const MainPage = ({leave})=>{
 
-    const [ transactions, setTransactions ] = useState([]);
+    const [ transactions, setTransactions ] = useState(getTransactionsFromLocalStorage());
 
     function getTotalValue(){
         if(transactions.length == 0){
