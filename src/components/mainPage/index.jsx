@@ -5,6 +5,7 @@ import NewTransaction from "../newTransactionCard"
 import TotalValue from "../totalValue"
 import Transaction from "../transaction"
 import NoCard from "../noCards"
+import FilterTransactions from "../filter"
 
 const getTransactionsFromLocalStorage =()=>{
 
@@ -45,6 +46,7 @@ const MainPage = ({leave})=>{
                     <TotalValue totalValue={getTotalValue()}/>
                 </aside>
                 <section className="transactions-section">
+                    <FilterTransactions/>
                     <ul className="transactions-list">
                         {
                             transactions.length == 0 ?
