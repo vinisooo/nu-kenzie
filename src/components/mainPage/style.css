@@ -1,0 +1,27 @@
+.main-content{
+    margin-top: 60px !important;
+}
+
+.transactions-section{
+    width: 100%;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.transactions-list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    gap: 2rem;
+}
+
+@media (min-width: 825px) {
+    .main-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .transactions-section{
+        width: 60%;
+    }
+}

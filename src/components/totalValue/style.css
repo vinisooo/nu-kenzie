@@ -1,0 +1,23 @@
+.total-value-card{
+    margin-top: 20px;
+    padding: 24px;
+    border-radius: 4px;
+    border: 1px solid #E9ECEF;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.total-value-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-value{
+    font-weight: 700;
+    font-size: 1rem;
+
+    color: var(--color-primary);
+}
