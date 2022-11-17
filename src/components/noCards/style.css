@@ -1,0 +1,17 @@
+.no-card-div{
+    width: 100%;
+
+}
+
+.no-card-div *{
+    width: 100%;
+}
+
+.no-card-msg{
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 34px;
+    text-align: left;
+    margin-bottom: 30px;
+    color: var(--color-grey-4);
+}

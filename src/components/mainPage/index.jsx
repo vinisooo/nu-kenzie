@@ -4,8 +4,9 @@ import { useState } from "react"
 import NewTransaction from "../newTransactionCard"
 import TotalValue from "../totalValue"
 import Transaction from "../transaction"
+import NoCard from "../noCards"
 
-const MainPage = ()=>{
+const MainPage = ({leave})=>{
 
     const [ transactions, setTransactions ] = useState([]);
 
@@ -24,7 +25,7 @@ const MainPage = ()=>{
 
     return (
         <>
-            <Header/>
+            <Header leave={leave}/>
             <main className="container main-content">
                 <aside>
                     <NewTransaction
@@ -36,6 +37,10 @@ const MainPage = ()=>{
                 <section className="transactions-section">
                     <ul className="transactions-list">
                         {
+                            transactions.length == 0 ?
+                            <NoCard/>
+
+                            :
                             transactions.map((el, index)=>{
                                 return <Transaction
                                         key={index}

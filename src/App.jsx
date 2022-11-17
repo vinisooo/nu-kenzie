@@ -20,7 +20,7 @@ function App() {
     <div className="App">
 
       {
-        !start ? <LandingPage enter={enter} />: <MainPage/>
+        !start ? <LandingPage enter={enter} />: <MainPage leave={leave}/>
       }
 
     </div>
