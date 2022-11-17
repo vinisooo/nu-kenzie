@@ -11,14 +11,11 @@ const NewTransaction = ({transactions, setTransactions})=>{
 
         const transaction = {
             "description": description,
-            "value": value,
+            "value": parseFloat(value).toFixed(2),
             "type": type,
             "id": id,
         }
         setTransactions([...transactions, transaction]);
-
-        const transactionsStr = JSON.stringify([...transactions]);
-        localStorage.setItem("@nu-kenzie: transactions", transactionsStr)
 
         setDescription("");
         setValue("");
@@ -30,6 +27,7 @@ const NewTransaction = ({transactions, setTransactions})=>{
             <div className="transaction-desc">
                 <label htmlFor="description">Descrição</label>
                 <input id="description" placeholder="Digite aqui sua descrição" value={description} onChange={(e)=>setDescription(e.target.value)}/>
+                <small>Ex: Compra de roupas</small>
             </div>
             <div className="value-info">
                 <div>
