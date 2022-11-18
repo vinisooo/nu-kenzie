@@ -18,12 +18,12 @@ const getTransactionsFromLocalStorage =()=>{
 }
 
 const MainPage = ({leave})=>{
-
+    const [ filter, setFilter ] = useState("");
     const [ transactions, setTransactions ] = useState(getTransactionsFromLocalStorage());
 
     function getTotalValue(){
         if(transactions.length == 0){
-            return "0.00"
+            return "0.00";
         }
         const entry = transactions.filter(el=> el.type == "entrada");
         const debits = transactions.filter(el=> el.type == "saida");
@@ -31,9 +31,20 @@ const MainPage = ({leave})=>{
         const entryValue = entry.map(el=>parseFloat(el.value)).reduce((a,b)=>{return a+b},0);
         const debitsValue = debits.map(el=>parseFloat(el.value)).reduce((a,b)=>{return a+b},0);
 
-        return (entryValue - debitsValue).toFixed(2)
+        return (entryValue - debitsValue).toFixed(2);
     }
 
+    function filterAll(){
+        if(filter == "entrada"){
+            const filtered = transactions.filter(el=> el.type == "entrada");
+            return filtered;
+        }if(filter == "saida"){
+            const filtered = transactions.filter(el=> el.type == "saida");
+            return filtered;
+        }else{
+            return transactions;
+        }
+    }
     return (
         <>
             <Header leave={leave}/>
@@ -46,14 +57,16 @@ const MainPage = ({leave})=>{
                     <TotalValue totalValue={getTotalValue()}/>
                 </aside>
                 <section className="transactions-section">
-                    <FilterTransactions/>
+                    <FilterTransactions
+                        filter={filter}
+                        setFilter={setFilter}
+                    />
                     <ul className="transactions-list">
                         {
-                            transactions.length == 0 ?
+                            filterAll().length == 0 ?
                             <NoCard/>
-
                             :
-                            transactions.map((el, index)=>{
+                            filterAll().map((el, index)=>{
                                 return <Transaction
                                         key={index}
                                         description={el.description}
