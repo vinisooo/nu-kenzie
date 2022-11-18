@@ -7,6 +7,7 @@ const NewTransaction = ({transactions, setTransactions})=>{
     const [ type, setType ] = useState("");
 
     function addTransaction(event){
+        event.preventDefault();
         if(description.trim() !="" && type.trim() !=""){
             const id = transactions.length == 0? 1: transactions[transactions.length -1].id + 1;
 
@@ -26,7 +27,7 @@ const NewTransaction = ({transactions, setTransactions})=>{
 
     return (
 
-        <form className="new-transaction">
+        <form className="new-transaction" onSubmit={addTransaction}>
             <div className="transaction-desc">
                 <label htmlFor="description">Descrição</label>
                 <input id="description" placeholder="Digite aqui sua descrição" value={description} onChange={(e)=>setDescription(e.target.value)}/>
@@ -46,11 +47,7 @@ const NewTransaction = ({transactions, setTransactions})=>{
                     </select>
                 </div>
             </div>
-            <button className="default-btn" onClick={(e)=>{
-                e.preventDefault();
-                addTransaction();
-            }}>Inserir valor</button>
-
+            <button className="default-btn" type="submit">Inserir valor</button>
         </form>
     )
 }
