@@ -12,6 +12,15 @@
     gap: 1.25rem;
 }
 
+.financial-summary-title{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 30px;
+    color: var(--color-grey-4);
+}
+
 @media (min-width: 860px){
     .filter-div{
         flex-direction: row;
@@ -19,3 +28,4 @@
         margin-top: 0;
     }
 }
+

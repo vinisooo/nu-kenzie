@@ -20,7 +20,7 @@ const FilterTransactions = ({filter, setFilter})=>{
 
     return (
         <div className="filter-div">
-            <h2>Resumo Financeiro</h2>
+            <h2 className='financial-summary-title'>Resumo Financeiro</h2>
             <nav className="filters">
                 {
                     buttons.map((btn, index)=>{
