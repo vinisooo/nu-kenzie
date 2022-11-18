@@ -22,11 +22,8 @@ const MainPage = ({leave})=>{
     const [ transactions, setTransactions ] = useState(getTransactionsFromLocalStorage());
 
     function getTotalValue(){
-        if(transactions.length == 0){
-            return "0.00";
-        }
-        const entry = transactions.filter(el=> el.type == "entrada");
-        const debits = transactions.filter(el=> el.type == "saida");
+        const entry = transactions.filter(el=> el.type === "entrada");
+        const debits = transactions.filter(el=> el.type === "saida");
 
         const entryValue = entry.map(el=>parseFloat(el.value)).reduce((a,b)=>{return a+b},0);
         const debitsValue = debits.map(el=>parseFloat(el.value)).reduce((a,b)=>{return a+b},0);
@@ -35,11 +32,11 @@ const MainPage = ({leave})=>{
     }
 
     function filterAll(){
-        if(filter == "entrada"){
-            const filtered = transactions.filter(el=> el.type == "entrada");
+        if(filter === "entrada"){
+            const filtered = transactions.filter(el=> el.type === "entrada");
             return filtered;
-        }if(filter == "saida"){
-            const filtered = transactions.filter(el=> el.type == "saida");
+        }if(filter === "saida"){
+            const filtered = transactions.filter(el=> el.type === "saida");
             return filtered;
         }else{
             return transactions;
@@ -63,7 +60,7 @@ const MainPage = ({leave})=>{
                     />
                     <ul className="transactions-list">
                         {
-                            filterAll().length == 0 ?
+                            filterAll().length === 0 ?
                             <NoCard/>
                             :
                             filterAll().map((el, index)=>{
