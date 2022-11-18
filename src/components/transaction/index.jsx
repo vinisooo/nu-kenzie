@@ -25,7 +25,7 @@ const Transaction=({description, value, type, id, transactions, setTransactions}
                     </button>
                 </div>
             </div>
-            <span>{type}</span>
+            <span className="transaction-type">{type}</span>
         </li>
     )
 
