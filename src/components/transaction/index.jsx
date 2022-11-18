@@ -17,9 +17,9 @@ const Transaction=({description, value, type, id, transactions, setTransactions}
     return (
         <li className={type == "entrada" ? "entry transaction":"debit transaction"}>
             <div className="transaction-div">
-                <h3>{description}</h3>
+                <h3 className="transaction-desc">{description}</h3>
                 <div>
-                    <span>R$ {value}</span>
+                    <span className="transaction-value">R$ {value}</span>
                     <button className="delete-btn" id={id} onClick={(e)=>removeTransaction(e.target.id)}>
                         <img src={deleteIcon} alt="" />
                     </button>
