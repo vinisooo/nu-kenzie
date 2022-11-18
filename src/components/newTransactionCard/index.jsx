@@ -7,18 +7,21 @@ const NewTransaction = ({transactions, setTransactions})=>{
     const [ type, setType ] = useState("");
 
     function addTransaction(event){
-        const id = transactions.length == 0? 1: transactions[transactions.length -1].id + 1;
+        if(description.trim() !="" && type.trim() !=""){
+            const id = transactions.length == 0? 1: transactions[transactions.length -1].id + 1;
 
-        const transaction = {
-            "description": description,
-            "value": parseFloat(value).toFixed(2),
-            "type": type,
-            "id": id,
+            const transaction = {
+                "description": description,
+                "value": parseFloat(value).toFixed(2),
+                "type": type,
+                "id": id,
+            }
+            setTransactions([...transactions, transaction]);
+    
+            setDescription("");
+            setValue(0);
+            setType("")
         }
-        setTransactions([...transactions, transaction]);
-
-        setDescription("");
-        setValue("");
     }
 
     return (
@@ -36,7 +39,7 @@ const NewTransaction = ({transactions, setTransactions})=>{
                 </div>
                 <div>
                     <label htmlFor="select-type">Tipo de valor</label>
-                    <select id="select-type" onChange={(e)=> setType(e.target.value)}>
+                    <select id="select-type" value={type} onChange={(e)=> setType(e.target.value)}>
                         <option value="">Tipo do valor</option>
                         <option value="entrada">Entrada</option>
                         <option value="saida">Saída</option>
