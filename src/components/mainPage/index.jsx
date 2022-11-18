@@ -18,7 +18,7 @@ const getTransactionsFromLocalStorage =()=>{
 }
 
 const MainPage = ({leave})=>{
-    const [ filter, setFilter ] = useState("");
+    const [ filter, setFilter ] = useState("all");
     const [ transactions, setTransactions ] = useState(getTransactionsFromLocalStorage());
 
     function getTotalValue(){
